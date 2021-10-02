@@ -2,9 +2,17 @@
 """
 Created on Tue Jan  5 22:28:10 2021
 
-@author: Hp
+@author: Prem S Rajanampalle 
 """
-
+# Things we will perform:
+  # Importing Libraries
+  # Knowing about the Data
+  # Pre-processing the data or Data Manipulations
+  # Splitting Dependent and Independent Variables
+  # Splitting The data into Training and Testing
+  # Train Linear Regression Model
+  # Knowing the Parameters (Intercept or Coefficients)
+  
 #                                       STEP1: IMPORTING LIBRARIES.
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -107,13 +115,13 @@ plt.figure(figsize=(20, 20))
 sb.heatmap(corr_matrix, annot=True, cmap='coolwarm')
 sb.pairplot(ds_concat3, height=1.7)
 """
-#STEP: SPLITING INDEPENDENT AND DEPENDENT VARIABLE.
+#                   STEP: SPLITING INDEPENDENT AND DEPENDENT VARIABLE.
 X = ds_original.iloc[:, 0:-1].values
 Y = ds_original.iloc[:, -1].values
 print(X)
 print(Y)
 
-#STEP: SPLIT THE DATA INTO TEST AND TRAINING DATA.
+#                   STEP: SPLIT THE DATA INTO TEST AND TRAINING DATA.
 from sklearn.model_selection import train_test_split
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=0)
 print("X_test", len(X_test))
@@ -122,7 +130,7 @@ print("Y_test", len(Y_test))
 print("Y_train", len(Y_train))
 
 
-#STEP: TRAIN MACHINE LEARNING MODEL.
+#                   STEP: TRAIN MACHINE LEARNING MODEL.
 # For Training data.
 from sklearn.linear_model import LinearRegression
 lr = LinearRegression()
@@ -143,7 +151,7 @@ print("PREDICTION_TEST: ", lr.predict(sample_X_test))
 # PREDICTION_TEST:  [3.50851148 3.98625193 3.74064044 1.1256586  3.25401103]
 
 
-#STEP: KNOWING ABOUT INTERCEPT AND THE COEFFICIENTS.
+#                   STEP: KNOWING ABOUT INTERCEPT AND THE COEFFICIENTS.
 print("INTERCEPT:-) ", lr.intercept_)
 print("Coefficients:-) ", lr.coef_)
 
